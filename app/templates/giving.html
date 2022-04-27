@@ -1,0 +1,30 @@
+{% extends "checkout-sucess.html" %}
+{% block content %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet"
+	     href="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/3.22.2/adyen.css"
+	     integrity="sha384-KM3xJKzswGJ0xqiPCOHrWUtn0i0LHqEngauvYxSfy0eRtqcImL7ArxjV2HVgeRJ/"
+	     crossorigin="anonymous">
+
+	<div id="payment-page">
+		<div class="container">
+
+			<div id='donation-container'></div>
+					<!-- Component will be rendered here -->
+			</div>
+
+		</div>
+	</div>
+
+
+	<script src="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/3.22.2/adyen.js"
+	     integrity="sha384-IFQe2Rj21dwe7OZAf06yld2esllbRy1pvCxC5MYSBaI8bwm5iYAvjoafjVvtj4cc"
+	     crossorigin="anonymous"></script>
+
+	<script id="client-key" type="application/json">{{ client_key|tojson }}</script>
+	<script id="integration-type" type="application/json">{{ method|tojson }}</script>
+
+	<script src="{{ url_for('static', filename='js/adyen-implementation.js') }}"></script>
+{% endblock %}
